@@ -5,7 +5,7 @@
 ##########################
 
 ### SET PATHS
-$SourceFolder = "Nintendo - Game Boy"
+$SourceFolder = "Z:\ROMS\MiSTer\games\ATARI2600"
 $TargetFolder = $SourceFolder
 $Size = 190
 $FolderSize = 250
@@ -116,6 +116,8 @@ Sort-Files -Filter "*(Asia)*" -Folder "$OtherFolder\Asia" -Name $_.Name -FullNam
 Sort-Files -Filter "*(Hong Kong)*" -Folder "$OtherFolder\Hong Kong" -Name $_.Name -FullName $_.FullName
 Sort-Files -Filter "*(Taiwan)*" -Folder "$OtherFolder\Taiwan" -Name $_.Name -FullName $_.FullName
 Sort-Files -Filter "*(Canada)*" -Folder "$OtherFolder\Canada" -Name $_.Name -FullName $_.FullName
+Sort-Files -Filter "*(New Zealand)*" -Folder "$OtherFolder\New Zealand" -Name $_.Name -FullName $_.FullName
+Sort-Files -Filter "*(Finland)*" -Folder "$OtherFolder\Finland" -Name $_.Name -FullName $_.FullName
 Sort-Files -Filter "*(Unknown)*" -Folder "$OtherFolder\Unknown" -Name $_.Name -FullName $_.FullName
 }
 

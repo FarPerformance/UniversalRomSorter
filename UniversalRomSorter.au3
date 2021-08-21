@@ -92,6 +92,7 @@ If IsArray($Files) Then
 	  Call(FileSort,"(Taiwan)",$OtherFolder&"\Taiwan",$Files[$f])
 	  Call(FileSort,"(Canada)",$OtherFolder&"\Canada",$Files[$f])
 	  Call(FileSort,"(New Zealand)",$OtherFolder&"\New Zealand",$Files[$f])
+	  Call(FileSort,"(Finland)",$OtherFolder&"\Finland",$Files[$f])
 	  Call(FileSort,"(Unknown)",$OtherFolder&"\Unknown",$Files[$f])
    Next
 EndIf
