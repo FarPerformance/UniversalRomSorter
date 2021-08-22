@@ -28,52 +28,52 @@ $BiosFolder = $TargetFolder&"\5 BIOS"
 $Files = _FileListToArrayRec($TargetFolder, "*", 1, 0, 1, 2)
 If IsArray($Files) Then
    For $f = 1 To $Files[0]
-;~ 	  BIOS
+;~ BIOS
 	  Call(FileSort,"[BIOS]",$BiosFolder,$Files[$f])
 	  Call(FileSort,"(Enhancement Chip)",$BiosFolder&"\Enhancement Chip",$Files[$f])
-;~ 	  REVISIONS
+;~ REVISIONS
 	  Call(FileSort,"(Rev",$RevisionFolder,$Files[$f])
 	  Call(FileSort,"(Alt",$RevisionFolder,$Files[$f])
 	  Call(FileSort,"Alt)",$RevisionFolder,$Files[$f])
-;~ 	  SEGA CD SPECIFIC
+;~ SEGA CD SPECIFIC
 	  Call(FileSort,"(Brazil) (Sega CD 32X)",$SegaCd32xFolder&"\2 Other Regions\Brazil",$Files[$f])
 	  Call(FileSort,"Sega CD 32X",$SegaCd32xFolder&"\1 USA",$Files[$f])
 	  Call(FileSort,"Mega-CD 32X",$SegaCd32xFolder&"\2 Europe",$Files[$f])
 	  Call(FileSort,"Enhanced Soundtrack Disc",$EnhancedSoundtrackFolder,$Files[$f])
-;~    BETAS
+;~ BETAS
 	  Call(FileSort,"(Beta",$BetaFolder&"\Beta",$Files[$f])
 	  Call(FileSort,"(Proto",$BetaFolder&"\Proto",$Files[$f])
 	  Call(FileSort,"Proto)",$BetaFolder&"\Proto",$Files[$f])
 	  Call(FileSort,"(Debug",$BetaFolder&"\Debug",$Files[$f])
-;~    UNLICENSED
+;~ UNLICENSED
 	  Call(FileSort,"(Aftermarket)",$UnlicensedFolder&"\Aftermarket",$Files[$f])
 	  Call(FileSort,"(Pirate)",$UnlicensedFolder&"\Pirate",$Files[$f])
 	  Call(FileSort,"(Unl)",$UnlicensedFolder,$Files[$f])
-;~ 	  PROGRAMS
+;~ PROGRAMS
 	  Call(FileSort,"Program)",$ProgramFolder,$Files[$f])
-;~    DEMOS
+;~ DEMOS
 	  Call(FileSort,"(Demo)",$DemoFolder&"\Demo",$Files[$f])
 	  Call(FileSort,"(Kiosk)",$DemoFolder&"\Kiosk",$Files[$f])
 	  Call(FileSort,"(Sample",$DemoFolder&"\Sample",$Files[$f])
 	  Call(FileSort,"(Promo",$DemoFolder&"\Promo",$Files[$f])
 	  Call(FileSort,"Promo)",$DemoFolder&"\Promo",$Files[$f])
-;~    NINTENDO
+;~ NINTENDO
 	  Call(FileSort,"Virtual Console",$VcFolder,$Files[$f])
 	  Call(FileSort,"Switch Online",$VcFolder,$Files[$f])
 	  Call(FileSort,"Game Boy Advance Video",$VideoFolder,$Files[$f])
 	  Call(FileSort,"(Arcade)",$ArcadeFolder,$Files[$f])
 	  Call(FileSort,"(NP)",$NintendoPowerFolder,$Files[$f])
-;~    SEGA
+;~ SEGA
 	  Call(FileSort,"(Sega Channel)",$SegaChannelFolder,$Files[$f])
 	  Call(FileSort,"(SegaNet)",$SegaChannelFolder&"\SegaNet",$Files[$f])
-;~ 	  MAIN REGIONS
+;~ MAIN REGIONS
 	  Call(FileSort,"(USA",$UsaFolder,$Files[$f])
 	  Call(FileSort,", USA",$UsaFolder,$Files[$f])
 	  Call(FileSort,"(World",$UsaFolder,$Files[$f])
 	  Call(FileSort,"(Europe",$EuropeFolder,$Files[$f])
 	  Call(FileSort,", Europe",$EuropeFolder,$Files[$f])
 	  Call(FileSort,"(Japan",$JapanFolder,$Files[$f])
-;~ 	  OTHER REGIONS
+;~ OTHER REGIONS
 	  Call(FileSort,"(Germany)",$OtherFolder&"\Germany",$Files[$f])
 	  Call(FileSort,"(Italy)",$OtherFolder&"\Italy",$Files[$f])
 	  Call(FileSort,"(Spain)",$OtherFolder&"\Spain",$Files[$f])
@@ -141,7 +141,7 @@ For $i = 65 To 90
    If $Character = "A" Then
 	  $Folder=$TargetFolder&"\"&$Name&" - A"
 	  DirCreate($Folder)
-;~    MOVE NUMBERED FILES
+;~ MOVE NUMBERED FILES
 	  $FileList = _FileListToArrayRec($TargetFolder, "0*;1*;2*;3*;4*;5*;6*;7*;8*;9*;'*", 1, 0, 1, 2)
 	  If IsArray($FileList) Then
 		 For $f = 1 To $FileList[0]
@@ -153,15 +153,15 @@ For $i = 65 To 90
    $FileListCount = _FileListToArrayRec($Folder, "*", 1, 0, 1, 2)
    If IsArray($FileListCount) Then
 	  If $FileListCount[0] > $FilesPerFolder Then
-;~ 		 RENAME FOLDER
+;~ RENAME FOLDER
 		 $LastChar=StringRegExpReplace($Folder, "^.*\\", "")
 		 $LastChar=StringREplace($Lastchar,$Name&" - ","")
 		 $PreviousChar=(Chr($i-1))
-;~ 		 RENAME ONLY IF CHAR IS DIFFERENT
+;~ RENAME ONLY IF CHAR IS DIFFERENT
 		 If $LastChar<>$PreviousChar Then
 			DirMove($Folder,$Folder&"-"&$PreviousChar)
 		 EndIf
-;~ 		 CREATE NEW FOLDER
+;~ CREATE NEW FOLDER
 		 $Folder=$TargetFolder&"\"&$Name&" - "&$Character
 		 DirCreate($Folder)
 	  EndIf
