@@ -1,5 +1,9 @@
 #include <Array.au3>
 #include <File.au3>
+
+If Not $CmdLine[0] Then Exit
+
+;~ PARAMETERS
 $TargetFolder=$CmdLine[1]
 $FilesPerFolder=190
 $MinFilesInFolder = 250
@@ -93,6 +97,9 @@ If IsArray($Files) Then
 	  Call(FileSort,"(Canada)",$OtherFolder&"\Canada",$Files[$f])
 	  Call(FileSort,"(New Zealand)",$OtherFolder&"\New Zealand",$Files[$f])
 	  Call(FileSort,"(Finland)",$OtherFolder&"\Finland",$Files[$f])
+	  Call(FileSort,"(Greece)",$OtherFolder&"\Greece",$Files[$f])
+	  Call(FileSort,"(Russia)",$OtherFolder&"\Russia",$Files[$f])
+	  Call(FileSort,"(Norway)",$OtherFolder&"\Norway",$Files[$f])
 	  Call(FileSort,"(Unknown)",$OtherFolder&"\Unknown",$Files[$f])
    Next
 EndIf

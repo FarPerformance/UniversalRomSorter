@@ -118,6 +118,9 @@ Sort-Files -Filter "*(Taiwan)*" -Folder "$OtherFolder\Taiwan" -Name $_.Name -Ful
 Sort-Files -Filter "*(Canada)*" -Folder "$OtherFolder\Canada" -Name $_.Name -FullName $_.FullName
 Sort-Files -Filter "*(New Zealand)*" -Folder "$OtherFolder\New Zealand" -Name $_.Name -FullName $_.FullName
 Sort-Files -Filter "*(Finland)*" -Folder "$OtherFolder\Finland" -Name $_.Name -FullName $_.FullName
+Sort-Files -Filter "*(Greece)*" -Folder "$OtherFolder\Greece" -Name $_.Name -FullName $_.FullName
+Sort-Files -Filter "*(Russia)*" -Folder "$OtherFolder\Russia" -Name $_.Name -FullName $_.FullName
+Sort-Files -Filter "*(Norway)*" -Folder "$OtherFolder\Norway" -Name $_.Name -FullName $_.FullName
 Sort-Files -Filter "*(Unknown)*" -Folder "$OtherFolder\Unknown" -Name $_.Name -FullName $_.FullName
 }
 
