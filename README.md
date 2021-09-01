@@ -1,5 +1,5 @@
 # Universal ROM Sorter
-A tool to sort No-Intro and Redump sets into organized folders.
+A simple tool to sort No-Intro and Redump sets into organized folders.
 
 ##### How to use:
 ```
