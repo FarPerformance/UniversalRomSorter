@@ -14,7 +14,7 @@ $WorldFolder = $TargetFolder&"\1 USA"
 $EuropeFolder = $TargetFolder&"\2 Europe"
 $JapanFolder = $TargetFolder&"\2 Japan"
 $OtherFolder = $TargetFolder&"\2 Other Regions"
-$UnlicensedFolder = $TargetFolder&"\2 Unlicensed"
+$RevisionFolder = $TargetFolder&"\2 Revisions"
 $NintendoPowerFolder = $TargetFolder&"\3 Nintendo Power"
 $ArcadeFolder = $TargetFolder&"\3 Super System Arcade"
 $VcFolder = $TargetFolder&"\3 Virtual Console"
@@ -24,10 +24,11 @@ $EnhancedSoundtrackFolder = $TargetFolder&"\3 Enhanced Soundtrack"
 $BetaFolder = $TargetFolder&"\4 Betas & Protos"
 $DemoFolder = $TargetFolder&"\4 Demos & Samples"
 $ProgramFolder = $TargetFolder&"\4 Programs"
-$RevisionFolder = $TargetFolder&"\4 Revisions"
+$UnlicensedFolder = $TargetFolder&"\4 Unlicensed"
 $VideoFolder = $TargetFolder&"\4 Videos"
 $BiosFolder = $TargetFolder&"\5 BIOS"
 
+;~ SORT MAIN FOLDER
 ;~ GET FILES
 $Files = _FileListToArrayRec($TargetFolder, "*", 1, 0, 1, 2)
 If IsArray($Files) Then
@@ -35,41 +36,41 @@ If IsArray($Files) Then
 ;~ BIOS
 	  Call(FileSort,"[BIOS]",$BiosFolder,$Files[$f])
 	  Call(FileSort,"(Enhancement Chip)",$BiosFolder&"\Enhancement Chip",$Files[$f])
-;~ REVISIONS
-	  Call(FileSort,"(Rev",$RevisionFolder,$Files[$f])
-	  Call(FileSort,"(Alt",$RevisionFolder,$Files[$f])
-	  Call(FileSort,"Alt)",$RevisionFolder,$Files[$f])
-;~ SEGA CD SPECIFIC
-	  Call(FileSort,"(Brazil) (Sega CD 32X)",$SegaCd32xFolder&"\2 Other Regions\Brazil",$Files[$f])
-	  Call(FileSort,"Sega CD 32X",$SegaCd32xFolder&"\1 USA",$Files[$f])
-	  Call(FileSort,"Mega-CD 32X",$SegaCd32xFolder&"\2 Europe",$Files[$f])
-	  Call(FileSort,"Enhanced Soundtrack Disc",$EnhancedSoundtrackFolder,$Files[$f])
-;~ BETAS
-	  Call(FileSort,"(Beta",$BetaFolder&"\Beta",$Files[$f])
-	  Call(FileSort,"(Proto",$BetaFolder&"\Proto",$Files[$f])
-	  Call(FileSort,"Proto)",$BetaFolder&"\Proto",$Files[$f])
-	  Call(FileSort,"(Debug",$BetaFolder&"\Debug",$Files[$f])
+;~ VIDEOS
+	  Call(FileSort,"Game Boy Advance Video",$VideoFolder,$Files[$f])
 ;~ UNLICENSED
 	  Call(FileSort,"(Aftermarket)",$UnlicensedFolder&"\Aftermarket",$Files[$f])
-	  Call(FileSort,"(Pirate)",$UnlicensedFolder&"\Pirate",$Files[$f])
 	  Call(FileSort,"(Unl)",$UnlicensedFolder,$Files[$f])
+;~ BETAS
+	  Call(FileSort,"(Beta",$BetaFolder&"\Betas",$Files[$f])
+	  Call(FileSort,"(Debug",$BetaFolder&"\Betas",$Files[$f])
+	  Call(FileSort,"(Proto",$BetaFolder&"\Protos",$Files[$f])
+	  Call(FileSort,"Proto)",$BetaFolder&"\Protos",$Files[$f])
+;~ DEMOS
+	  Call(FileSort,"(Demo)",$DemoFolder&"\Demos",$Files[$f])
+	  Call(FileSort,"(Kiosk)",$DemoFolder&"\Demos",$Files[$f])
+	  Call(FileSort,"(Sample",$DemoFolder&"\Samples",$Files[$f])
+	  Call(FileSort,"(Promo",$DemoFolder&"\Samples",$Files[$f])
+	  Call(FileSort,"Promo)",$DemoFolder&"\Samples",$Files[$f])
 ;~ PROGRAMS
 	  Call(FileSort,"Program)",$ProgramFolder,$Files[$f])
-;~ DEMOS
-	  Call(FileSort,"(Demo)",$DemoFolder&"\Demo",$Files[$f])
-	  Call(FileSort,"(Kiosk)",$DemoFolder&"\Kiosk",$Files[$f])
-	  Call(FileSort,"(Sample",$DemoFolder&"\Sample",$Files[$f])
-	  Call(FileSort,"(Promo",$DemoFolder&"\Promo",$Files[$f])
-	  Call(FileSort,"Promo)",$DemoFolder&"\Promo",$Files[$f])
 ;~ NINTENDO
 	  Call(FileSort,"Virtual Console",$VcFolder,$Files[$f])
 	  Call(FileSort,"Switch Online",$VcFolder,$Files[$f])
-	  Call(FileSort,"Game Boy Advance Video",$VideoFolder,$Files[$f])
 	  Call(FileSort,"(Arcade)",$ArcadeFolder,$Files[$f])
 	  Call(FileSort,"(NP)",$NintendoPowerFolder,$Files[$f])
 ;~ SEGA
 	  Call(FileSort,"(Sega Channel)",$SegaChannelFolder,$Files[$f])
 	  Call(FileSort,"(SegaNet)",$SegaChannelFolder&"\SegaNet",$Files[$f])
+;~ SEGA CD SPECIFIC
+	  Call(FileSort,"(Brazil) (Sega CD 32X)",$SegaCd32xFolder&"\2 Other Regions\Brazil",$Files[$f])
+	  Call(FileSort,"Sega CD 32X",$SegaCd32xFolder&"\1 USA",$Files[$f])
+	  Call(FileSort,"Mega-CD 32X",$SegaCd32xFolder&"\2 Europe",$Files[$f])
+	  Call(FileSort,"Enhanced Soundtrack Disc",$EnhancedSoundtrackFolder,$Files[$f])
+;~ REVISIONS
+	  Call(FileSort,"(Rev",$RevisionFolder,$Files[$f])
+	  Call(FileSort,"(Alt",$RevisionFolder,$Files[$f])
+	  Call(FileSort,"Alt)",$RevisionFolder,$Files[$f])
 ;~ MAIN REGIONS
 	  Call(FileSort,"(USA",$UsaFolder,$Files[$f])
 	  Call(FileSort,", USA",$UsaFolder,$Files[$f])
@@ -128,6 +129,27 @@ If IsArray($JapanCount) Then
 	  Call(FolderSort,$JapanFolder,$Name,$FilesPerFolder)
    EndIf
 Endif
+
+;~ SORT VIRTUAL CONSOLE FOLDER
+$Files = _FileListToArrayRec($VcFolder, "*", 1, 0, 1, 2)
+If IsArray($Files) Then
+   For $f = 1 To $Files[0]
+;~ REVISIONS
+	  Call(FileSort,"(Rev",$VcFolder&"\2 Revisions",$Files[$f])
+	  Call(FileSort,"(Alt",$VcFolder&"\2 Revisions",$Files[$f])
+	  Call(FileSort,"Alt)",$VcFolder&"\2 Revisions",$Files[$f])
+;~ MAIN REGIONS
+	  Call(FileSort,"(USA",$VcFolder&"\1 USA",$Files[$f])
+	  Call(FileSort,", USA",$VcFolder&"\1 USA",$Files[$f])
+	  Call(FileSort,"(World",$VcFolder&"\1 USA",$Files[$f])
+	  Call(FileSort,"(Europe",$VcFolder&"\2 Europe",$Files[$f])
+	  Call(FileSort,", Europe",$VcFolder&"\2 Europe",$Files[$f])
+	  Call(FileSort,"(Japan",$VcFolder&"\2 Japan",$Files[$f])
+;~ OTHER REGIONS
+	  Call(FileSort," ",$VcFolder&"\2 Other Regions",$Files[$f])
+
+   Next
+EndIf
 
 ;~ FUNCTIONS
 ;~ FILESORT
