@@ -44,11 +44,11 @@ Sega - Mega Drive - Genesis
 │   ├───2 Japan
 │   └───2 Revisions
 ├───4 Betas & Protos
-│   ├───Beta
-│   └───Proto
+│   ├───Betas
+│   └───Protos
 ├───4 Demos & Samples
-│   ├───Demo
-│   └───Sample
+│   ├───Demos
+│   └───Samples
 ├───4 Programs
 ├───4 Unlicensed
 │   └───Aftermarket
