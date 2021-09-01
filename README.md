@@ -8,7 +8,7 @@ Example:  urs.exe "D:\ROMS\No-Intro\Sega - Mega Drive - Genesis"
 Or: Drag and drop the folder containing your romset onto urs.exe
 ```
 
-Example output:
+##### Example output:
 ```
 Sega - Mega Drive - Genesis
 ├───1 USA
