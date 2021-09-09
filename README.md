@@ -14,8 +14,8 @@ Or drag and drop the folder containing your romset onto urs.exe
 Sega - Mega Drive - Genesis
 ├───1 USA
 │   ├───USA - A-F
-│   ├───USA - G-N
-│   ├───USA - O-T
+│   ├───USA - G-O
+│   ├───USA - P-T
 │   └───USA - U-Z
 ├───2 Europe
 │   ├───Europe - A-S
@@ -36,13 +36,14 @@ Sega - Mega Drive - Genesis
 │   ├───Sweden
 │   └───Unknown
 ├───2 Revisions
-├───3 Sega Channel
+├───3 Collections
+│   ├───Castlevania Anniversary Collection
+│   └───Sonic Classic Collection
+├───3 Mega Drive Mini
+├───3 Sega Channel & SegaNet
+│   ├───Sega Channel
 │   └───SegaNet
 ├───3 Virtual Console
-│   ├───1 USA
-│   ├───2 Europe
-│   ├───2 Japan
-│   └───2 Revisions
 ├───4 Betas & Protos
 │   ├───Betas
 │   └───Protos
