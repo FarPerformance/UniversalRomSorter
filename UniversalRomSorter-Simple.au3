@@ -14,13 +14,6 @@ $WorldFolder = $TargetFolder&"\1 USA"
 $EuropeFolder = $TargetFolder&"\2 Europe"
 $JapanFolder = $TargetFolder&"\2 Japan"
 $OtherFolder = $TargetFolder&"\2 Other Regions"
-$RevisionFolder = $TargetFolder&"\2 Revisions"
-$CollectionFolder = $TargetFolder&"\3 Collections"
-$SegaMiniFolder = $TargetFolder&"\3 Mega Drive Mini"
-$NintendoPowerFolder = $TargetFolder&"\3 Nintendo Power"
-$ArcadeFolder = $TargetFolder&"\3 Super System Arcade"
-$VcFolder = $TargetFolder&"\3 Virtual Console"
-$SegaChannelFolder = $TargetFolder&"\3 Sega Channel & SegaNet"
 $SegaCd32xFolder = $TargetFolder&"\3 Sega CD 32X"
 $EnhancedSoundtrackFolder = $TargetFolder&"\3 Enhanced Soundtrack"
 $BetaFolder = $TargetFolder&"\4 Betas & Protos"
@@ -42,22 +35,6 @@ If IsArray($Files) Then
 	  Call(FileSort,"(System)",$BiosFolder&"\System",$Files[$f])
 ;~ VIDEOS
 	  Call(FileSort,"Game Boy Advance Video",$VideoFolder,$Files[$f])
-;~ COLLECTIONS
-	  Call(FileSort,"(Castlevania Anniversary Collection",$CollectionFolder&"\Castlevania Anniversary Collection",$Files[$f])
-	  Call(FileSort,"(Collection of Mana",$CollectionFolder&"\Collection of Mana",$Files[$f])
-	  Call(FileSort,"(Collection of SaGa",$CollectionFolder&"\Collection of SaGa",$Files[$f])
-	  Call(FileSort,"(Seiken Densetsu Collection",$CollectionFolder&"\Collection of Mana",$Files[$f])
-	  Call(FileSort,"(Contra Anniversary Collection",$CollectionFolder&"\Contra Anniversary Collection",$Files[$f])
-	  Call(FileSort,"(Darius Cozmic Collection",$CollectionFolder&"\Darius Cozmic Collection",$Files[$f])
-	  Call(FileSort,"(Mega Man Legacy Collection",$CollectionFolder&"\Mega Man Legacy Collection",$Files[$f])
-	  Call(FileSort,"(Namcot Collection",$CollectionFolder&"\Namcot Collection",$Files[$f])
-	  Call(FileSort,"Namco Museum Archives",$CollectionFolder&"\Namcot Collection",$Files[$f])
-	  Call(FileSort,"(SNK 40th Anniversary Collection",$CollectionFolder&"\SNK 40th Anniversary Collection",$Files[$f])
-	  Call(FileSort,"(Sonic Classic Collection",$CollectionFolder&"\Sonic Classic Collection",$Files[$f])
-	  Call(FileSort,"(The Disney Afternoon Collection",$CollectionFolder&"\The Disney Afternoon Collection",$Files[$f])
-;~ SEGA MINI CONSOLES
-	  Call(FileSort,"(Mega Drive Mini)",$SegaMiniFolder,$Files[$f])
-	  Call(FileSort,"(Genesis Mini)",$SegaMiniFolder,$Files[$f])
 ;~ UNLICENSED
 	  Call(FileSort,"(Pirate)",$UnlicensedFolder,$Files[$f])
 	  Call(FileSort,"(Unl)",$UnlicensedFolder,$Files[$f])
@@ -74,25 +51,11 @@ If IsArray($Files) Then
 	  Call(FileSort,"Promo)",$DemoFolder&"\Samples",$Files[$f])
 ;~ PROGRAMS
 	  Call(FileSort,"Program)",$ProgramFolder,$Files[$f])
-;~ NINTENDO
-	  Call(FileSort,"Virtual Console",$VcFolder,$Files[$f])
-	  Call(FileSort,"Switch Online",$VcFolder,$Files[$f])
-	  Call(FileSort,"(Arcade)",$ArcadeFolder,$Files[$f])
-	  Call(FileSort,"(NP)",$NintendoPowerFolder,$Files[$f])
-;~ SEGA
-	  Call(FileSort,"(Sega Channel)",$SegaChannelFolder&"\Sega Channel",$Files[$f])
-	  Call(FileSort,"(SegaNet)",$SegaChannelFolder&"\SegaNet",$Files[$f])
 ;~ SEGA CD SPECIFIC
 	  Call(FileSort,"(Brazil) (Sega CD 32X)",$SegaCd32xFolder&"\2 Other Regions\Brazil",$Files[$f])
 	  Call(FileSort,"Sega CD 32X",$SegaCd32xFolder&"\1 USA",$Files[$f])
 	  Call(FileSort,"Mega-CD 32X",$SegaCd32xFolder&"\2 Europe",$Files[$f])
 	  Call(FileSort,"Enhanced Soundtrack Disc",$EnhancedSoundtrackFolder,$Files[$f])
-;~ REVISIONS
-	  Call(FileSort,"(GameCube",$RevisionFolder&"\GameCube",$Files[$f])
-	  Call(FileSort,"(Wii)",$RevisionFolder&"\Wii",$Files[$f])
-	  Call(FileSort,"(Rev",$RevisionFolder,$Files[$f])
-	  Call(FileSort,"(Alt",$RevisionFolder,$Files[$f])
-	  Call(FileSort,"Alt)",$RevisionFolder,$Files[$f])
 ;~ MAIN REGIONS
 	  Call(FileSort,"(USA",$UsaFolder,$Files[$f])
 	  Call(FileSort,", USA",$UsaFolder,$Files[$f])
