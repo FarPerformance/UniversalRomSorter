@@ -22,8 +22,7 @@ Sega - Mega Drive - Genesis
 │   └───Europe - T-Z
 ├───2 Japan
 │   ├───Japan - A-M
-│   ├───Japan - N-Y
-│   └───Japan - Z
+│   └───Japan - N-Z
 ├───2 Other Regions
 │   ├───Asia
 │   ├───Australia
