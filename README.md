@@ -18,8 +18,8 @@ Sega - Mega Drive - Genesis
 │   ├───USA - P-T
 │   └───USA - U-Z
 ├───2 Europe
-│   ├───Europe - A-S
-│   └───Europe - T-Z
+│   ├───Europe - A-R
+│   └───Europe - S-Z
 ├───2 Japan
 │   ├───Japan - A-M
 │   └───Japan - N-Z
