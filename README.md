@@ -22,7 +22,8 @@ Sega - Mega Drive - Genesis
 │   └───Europe - T-Z
 ├───2 Japan
 │   ├───Japan - A-M
-│   └───Japan - N-Z
+│   ├───Japan - N-Y
+│   └───Japan - Z
 ├───2 Other Regions
 │   ├───Asia
 │   ├───Australia
@@ -38,11 +39,10 @@ Sega - Mega Drive - Genesis
 ├───2 Revisions
 ├───3 Collections
 │   ├───Castlevania Anniversary Collection
+│   ├───Contra Anniversary Collection
+│   ├───Darius Cozmic Collection
 │   └───Sonic Classic Collection
 ├───3 Mega Drive Mini
-├───3 Sega Channel & SegaNet
-│   ├───Sega Channel
-│   └───SegaNet
 ├───3 Virtual Console
 ├───4 Betas & Protos
 │   ├───Betas
@@ -52,6 +52,5 @@ Sega - Mega Drive - Genesis
 │   └───Samples
 ├───4 Programs
 ├───4 Unlicensed
-│   └───Aftermarket
 └───5 BIOS
 ```
