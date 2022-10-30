@@ -12,7 +12,6 @@ $Mode = IniRead($IniFile, "General", "1G1R", "0")
 
 ;~ SETTINGS
 $MainFolderFileCount = IniRead($IniFile, "Settings", "MainFolderFileCount", "200")
-$SubFolderMinimumFileCount = IniRead($IniFile, "Settings", "SubFolderMinimumFileCount", "150")
 
 ;~ DEFINE FOLDERS
 $UsaFolderName = IniRead($IniFile, "Folders", "USA", "1 USA")
@@ -28,11 +27,12 @@ $VcFolderName = IniRead($IniFile, "Folders", "VirtualConsole", "3 Virtual Consol
 $EnhancedSoundtrackFolderName = IniRead($IniFile, "Folders", "EnhancedSoundtrack", "3 Enhanced Soundtrack")
 $BetaFolderName = IniRead($IniFile, "Folders", "Betas", "4 Betas & Protos")
 $DemoFolderName = IniRead($IniFile, "Folders", "Demos", "4 Demos & Samples")
+$HomebrewFolderName = IniRead($IniFile, "Folders", "Homebrew", "4 Homebrew")
 $ProgramFolderName = IniRead($IniFile, "Folders", "Programs", "4 Programs")
-$TranslationFolderName = IniRead($IniFile, "Folders", "Translations", "4 Translations")
 $UnlicensedFolderName = IniRead($IniFile, "Folders", "Unlicensed", "4 Unlicensed")
 $VideoFolderName = IniRead($IniFile, "Folders", "Videos", "4 Videos")
-$BiosFolderName = IniRead($IniFile, "Folders", "BIOS", "5 BIOS")
+$TranslationFolderName = IniRead($IniFile, "Folders", "Translations", "5 Translations")
+$BiosFolderName = IniRead($IniFile, "Folders", "BIOS", "6 BIOS")
 
 ;~ DEFINE PATHS
 $UsaFolder = $RomsFolder & "\" & $UsaFolderName
@@ -48,6 +48,7 @@ $VcFolder = $RomsFolder & "\" & $VcFolderName
 $EnhancedSoundtrackFolder = $RomsFolder & "\" & $EnhancedSoundtrackFolderName
 $BetaFolder = $RomsFolder & "\" & $BetaFolderName
 $DemoFolder = $RomsFolder & "\" & $DemoFolderName
+$HomebrewFolder = $RomsFolder & "\" & $HomebrewFolderName
 $ProgramFolder = $RomsFolder & "\" & $ProgramFolderName
 $TranslationFolder = $RomsFolder & "\" & $TranslationFolderName
 $UnlicensedFolder = $RomsFolder & "\" & $UnlicensedFolderName
@@ -64,6 +65,18 @@ If IsArray($Files) Then
 	  Call(FileSort, "(Enhancement Chip)", $BiosFolder & "\Enhancement Chip", $Files[$f])
 	  Call(FileSort, "(Channel)", $BiosFolder & "\Channel", $Files[$f])
 	  Call(FileSort, "(System)", $BiosFolder & "\System", $Files[$f])
+;~ BETAS
+	  Call(FileSort, "(Beta", $BetaFolder & "\Betas", $Files[$f])
+	  Call(FileSort, "(Debug", $BetaFolder & "\Betas", $Files[$f])
+	  Call(FileSort, "(Proto", $BetaFolder & "\Protos", $Files[$f])
+	  Call(FileSort, "Proto)", $BetaFolder & "\Protos", $Files[$f])
+;~ DEMOS
+	  Call(FileSort, "(Demo", $DemoFolder & "\Demos", $Files[$f])
+	  Call(FileSort, "Demo Disc", $DemoFolder & "\Demos", $Files[$f])
+	  Call(FileSort, "(Kiosk", $DemoFolder & "\Demos", $Files[$f])
+	  Call(FileSort, "(Sample", $DemoFolder & "\Samples", $Files[$f])
+	  Call(FileSort, "(Promo", $DemoFolder & "\Samples", $Files[$f])
+	  Call(FileSort, "Promo)", $DemoFolder & "\Samples", $Files[$f])
 ;~ TRANSLATIONS
 	  Call(FileSort, "[T-En", $TranslationFolder, $Files[$f])
 	  Call(FileSort, "(T-En", $TranslationFolder, $Files[$f])
@@ -86,7 +99,15 @@ If IsArray($Files) Then
 		 Call(FileSort, "(SNK 40th Anniversary Collection", $CollectionFolder & "\SNK 40th Anniversary Collection", $Files[$f])
 		 Call(FileSort, "(Sonic Classic Collection", $CollectionFolder & "\Sonic Classic Collection", $Files[$f])
 		 Call(FileSort, "(The Disney Afternoon Collection", $CollectionFolder & "\The Disney Afternoon Collection", $Files[$f])
+		 Call(FileSort, "(The Cowabunga Collection", $CollectionFolder & "\The Cowabunga Collection", $Files[$f])
+		 Call(FileSort, "(SEGA Classic Collection", $CollectionFolder & "\SEGA Classic Collection", $Files[$f])
+		 Call(FileSort, "(Sonic Mega Collection", $CollectionFolder & "\Sonic Mega Collection", $Files[$f])
+		 Call(FileSort, "(Disney Classic Games", $CollectionFolder & "\Disney Classic Games", $Files[$f])
+		 Call(FileSort, "(e-Reader Edition", $CollectionFolder & "\e-Reader Edition", $Files[$f])
+		 Call(FileSort, "(Capcom Classics Mini Mix", $CollectionFolder & "\Capcom Classics Mini Mix", $Files[$f])
 	  EndIf
+;~ HOMEBREW
+	  Call(FileSort, "(Homebrew)", $HomebrewFolder, $Files[$f])
 ;~ UNLICENSED
 	  Call(FileSort, "(Pirate)", $UnlicensedFolder, $Files[$f])
 	  Call(FileSort, "(Unl)", $UnlicensedFolder, $Files[$f])
@@ -95,18 +116,6 @@ If IsArray($Files) Then
 		 Call(FileSort, "(Mega Drive Mini)", $SegaMiniFolder, $Files[$f])
 		 Call(FileSort, "(Genesis Mini)", $SegaMiniFolder, $Files[$f])
 	  EndIf
-;~ BETAS
-	  Call(FileSort, "(Beta", $BetaFolder & "\Betas", $Files[$f])
-	  Call(FileSort, "(Debug", $BetaFolder & "\Betas", $Files[$f])
-	  Call(FileSort, "(Proto", $BetaFolder & "\Protos", $Files[$f])
-	  Call(FileSort, "Proto)", $BetaFolder & "\Protos", $Files[$f])
-;~ DEMOS
-	  Call(FileSort, "(Demo", $DemoFolder & "\Demos", $Files[$f])
-	  Call(FileSort, "Demo Disc", $DemoFolder & "\Demos", $Files[$f])
-	  Call(FileSort, "(Kiosk", $DemoFolder & "\Demos", $Files[$f])
-	  Call(FileSort, "(Sample", $DemoFolder & "\Samples", $Files[$f])
-	  Call(FileSort, "(Promo", $DemoFolder & "\Samples", $Files[$f])
-	  Call(FileSort, "Promo)", $DemoFolder & "\Samples", $Files[$f])
 ;~ PROGRAMS
 	  Call(FileSort, "Program)", $ProgramFolder, $Files[$f])
 ;~ NINTENDO
@@ -120,14 +129,15 @@ If IsArray($Files) Then
 	  Call(FileSort, "Mega-CD 32X", $SegaCd32xFolder & "\" & $EuropeFolderName, $Files[$f])
 	  Call(FileSort, "Enhanced Soundtrack Disc", $EnhancedSoundtrackFolder, $Files[$f])
 ;~ REVISIONS
-	  If $Mode = "0" Then
-		 Call(FileSort, "(GameCube", $RevisionFolder, $Files[$f])
-		 Call(FileSort, "(Wii)", $RevisionFolder, $Files[$f])
-		 Call(FileSort, "(Sega Channel)", $RevisionFolder, $Files[$f])
-		 Call(FileSort, "(Rev", $RevisionFolder, $Files[$f])
-		 Call(FileSort, "(Alt", $RevisionFolder, $Files[$f])
-		 Call(FileSort, "Alt)", $RevisionFolder, $Files[$f])
-	  EndIf
+ 	  If $Mode = "0" Then
+ 		 Call(FileSort, "(GameCube", $RevisionFolder, $Files[$f])
+ 		 Call(FileSort, "(Wii)", $RevisionFolder, $Files[$f])
+ 		 Call(FileSort, "(Sega Channel", $RevisionFolder, $Files[$f])
+		 Call(FileSort, "(Sega Ages", $RevisionFolder, $Files[$f])
+ 		 Call(FileSort, "(Rev", $RevisionFolder, $Files[$f])
+ 		 Call(FileSort, "(Alt", $RevisionFolder, $Files[$f])
+ 		 Call(FileSort, "Alt)", $RevisionFolder, $Files[$f])
+ 	  EndIf
 ;~ MAIN REGIONS
 	  Call(FileSort, "(USA", $UsaFolder, $Files[$f])
 	  Call(FileSort, ", USA", $UsaFolder, $Files[$f])
@@ -173,51 +183,66 @@ If IsArray($Files) Then
 EndIf
 
 ;~ CREATE SUBFOLDERS FOR MAIN REGION FOLDERS
+$WorldCount = _FileListToArrayRec($WorldFolder, "*", 1, 0, 1, 2)
+If IsArray($WorldCount) Then
+   If $WorldCount[0] > $MainFolderFileCount Then
+	  Call(FolderSort, $WorldFolder)
+   EndIf
+Endif
+
 $UsaCount = _FileListToArrayRec($UsaFolder, "*", 1, 0, 1, 2)
 If IsArray($UsaCount) Then
    If $UsaCount[0] > $MainFolderFileCount Then
-	  $Name="USA"
-	  Call(FolderSort, $UsaFolder, $Name, $SubFolderMinimumFileCount)
+	  Call(FolderSort, $UsaFolder)
    EndIf
 Endif
 
 $EuropeCount = _FileListToArrayRec($EuropeFolder, "*", 1, 0, 1, 2)
 If IsArray($EuropeCount) Then
    If $EuropeCount[0] > $MainFolderFileCount Then
-	  $Name="Europe"
-	  Call(FolderSort, $EuropeFolder, $Name, $SubFolderMinimumFileCount)
+	  Call(FolderSort, $EuropeFolder)
    EndIf
 Endif
 
 $JapanCount = _FileListToArrayRec($JapanFolder, "*", 1, 0, 1, 2)
 If IsArray($JapanCount) Then
    If $JapanCount[0] > $MainFolderFileCount Then
-	  $Name="Japan"
-	  Call(FolderSort, $JapanFolder, $Name, $SubFolderMinimumFileCount)
+	  Call(FolderSort, $JapanFolder)
    EndIf
 Endif
 
 $RevisionCount = _FileListToArrayRec($RevisionFolder, "*", 1, 0, 1, 2)
 If IsArray($RevisionCount) Then
    If $RevisionCount[0] > $MainFolderFileCount Then
-	  $Name="Revisions"
-	  Call(FolderSort, $RevisionFolder, $Name, $SubFolderMinimumFileCount)
+	  Call(FolderSort, $RevisionFolder)
    EndIf
 Endif
 
 $TranslationCount = _FileListToArrayRec($TranslationFolder, "*", 1, 0, 1, 2)
 If IsArray($TranslationCount) Then
    If $TranslationCount[0] > $MainFolderFileCount Then
-	  $Name="Translations"
-	  Call(FolderSort, $TranslationFolder, $Name, $SubFolderMinimumFileCount)
+	  Call(FolderSort, $TranslationFolder)
    EndIf
 Endif
 
 $UnlicensedCount = _FileListToArrayRec($UnlicensedFolder, "*", 1, 0, 1, 2)
 If IsArray($UnlicensedCount) Then
    If $UnlicensedCount[0] > $MainFolderFileCount Then
-	  $Name="Unlicensed"
-	  Call(FolderSort, $UnlicensedFolder, $Name, $SubFolderMinimumFileCount)
+	  Call(FolderSort, $UnlicensedFolder)
+   EndIf
+Endif
+
+$HomebrewCount = _FileListToArrayRec($HomebrewFolder, "*", 1, 0, 1, 2)
+If IsArray($HomebrewCount) Then
+   If $HomebrewCount[0] > $MainFolderFileCount Then
+	  Call(FolderSort, $HomebrewFolder)
+   EndIf
+Endif
+
+$VcCount = _FileListToArrayRec($VcFolder, "*", 1, 0, 1, 2)
+If IsArray($VcCount) Then
+   If $VcCount[0] > $MainFolderFileCount Then
+	  Call(FolderSort, $VcFolder)
    EndIf
 Endif
 
@@ -233,47 +258,24 @@ Func FileSort($Filter, $Folder, $FullName)
 EndFunc
 
 ;~ FOLDERSORT
-Func FolderSort($RomsFolder, $Name, $SubFolderMinimumFileCount)
-;~ ITERATE THROUGH ALPHABET
-For $i = 65 To 90
-   $Character = (Chr($i))
-   If $Character = "A" Then
-	  $Folder = $RomsFolder & "\" & $Name & " - A"
-	  DirCreate($Folder)
+Func FolderSort($RomsFolder)
 ;~ MOVE NUMBERED FILES
-	  $FileList = _FileListToArrayRec($RomsFolder, "0*;1*;2*;3*;4*;5*;6*;7*;8*;9*;'*", 1, 0, 1, 2)
-	  If IsArray($FileList) Then
+$FileList = _FileListToArrayRec($RomsFolder, "0*;1*;2*;3*;4*;5*;6*;7*;8*;9*;'*", 1, 0, 1, 2)
+   If IsArray($FileList) Then
+	  $Folder = $RomsFolder & "\#"
+	  DirCreate($Folder)
 		 For $f = 1 To $FileList[0]
 			FileMove($FileList[$f], $Folder)
 		 Next
 	  EndIf
-   EndIf
-;~ CHECK FILES COUNT
-   $FileListCount = _FileListToArrayRec($Folder, "*", 1, 0, 1, 2)
-   If IsArray($FileListCount) Then
-	  If $FileListCount[0] > $SubFolderMinimumFileCount Then
-;~ RENAME FOLDER
-		 $LastChar = StringRegExpReplace($Folder, "^.*\\", "")
-		 $LastChar = StringREplace($Lastchar, $Name & " - ","")
-		 $PreviousChar = (Chr($i-1))
-;~ RENAME ONLY IF CHAR IS DIFFERENT
-		 If $LastChar<>$PreviousChar Then
-			DirMove($Folder, $Folder & "-" & $PreviousChar)
-		 EndIf
-;~ CREATE NEW FOLDER
-		 $Folder = $RomsFolder & "\" & $Name & " - " & $Character
-		 DirCreate($Folder)
-	  EndIf
-   Endif
-;~ MOVE FILES
-   $FileList = _FileListToArrayRec($RomsFolder, $Character & "*", 1, 0, 1, 2)
+
+$FileList = _FileListToArrayRec($RomsFolder, "*", 1, 0, 1, 2)
    If IsArray($FileList) Then
-	  For $f = 1 To $FileList[0]
-		 FileMove($FileList[$f], $Folder)
-	  Next
+		 For $f = 1 To $FileList[0]
+			$FileName = StringUpper(StringLeft(StringReplace($FileList[$f],$RomsFolder & "\" ,""),1))
+			$Folder = $RomsFolder & "\" & $FileName
+			DirCreate($Folder)
+			FileMove($FileList[$f], $Folder)
+		 Next
    EndIf
-   If $Character = "Z" And $Folder <> ($RomsFolder & "\" & $Name & " - Z") Then
-	  DirMove($Folder, $Folder & "-Z")
-   EndIf
- Next
- EndFunc
+EndFunc
