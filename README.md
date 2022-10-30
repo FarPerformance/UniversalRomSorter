@@ -13,16 +13,8 @@ Or drag and drop the folder containing your romset onto urs.exe
 ```
 Sega - Mega Drive - Genesis
 ├───1 USA
-│   ├───USA - A-F
-│   ├───USA - G-O
-│   ├───USA - P-T
-│   └───USA - U-Z
 ├───2 Europe
-│   ├───Europe - A-R
-│   └───Europe - S-Z
 ├───2 Japan
-│   ├───Japan - A-M
-│   └───Japan - N-Z
 ├───2 Other Regions
 │   ├───Asia
 │   ├───Australia
@@ -40,7 +32,10 @@ Sega - Mega Drive - Genesis
 │   ├───Castlevania Anniversary Collection
 │   ├───Contra Anniversary Collection
 │   ├───Darius Cozmic Collection
-│   └───Sonic Classic Collection
+│   ├───Disney Classic Games
+│   ├───SEGA Classic Collection
+│   ├───Sonic Classic Collection
+│   └───Sonic Mega Collection
 ├───3 Mega Drive Mini
 ├───3 Virtual Console
 ├───4 Betas & Protos
@@ -49,7 +44,8 @@ Sega - Mega Drive - Genesis
 ├───4 Demos & Samples
 │   ├───Demos
 │   └───Samples
+├───4 Homebrew
 ├───4 Programs
 ├───4 Unlicensed
-└───5 BIOS
+└───6 BIOS
 ```
