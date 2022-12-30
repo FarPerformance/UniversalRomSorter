@@ -31,13 +31,7 @@ Sega - Mega Drive - Genesis
 ├───3 Collections
 │   ├───Castlevania Anniversary Collection
 │   ├───Contra Anniversary Collection
-│   ├───Darius Cozmic Collection
-│   ├───Disney Classic Games
-│   ├───SEGA Classic Collection
-│   ├───Sonic Classic Collection
-│   └───Sonic Mega Collection
-├───3 Mega Drive Mini
-├───3 Virtual Console
+│   └───Darius Cozmic Collection
 ├───4 Betas & Protos
 │   ├───Betas
 │   └───Protos
