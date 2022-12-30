@@ -11,27 +11,25 @@ $IniFile = @ScriptDir & "\urs.ini"
 $Mode = IniRead($IniFile, "General", "1G1R", "0")
 
 ;~ SETTINGS
-$MainFolderFileCount = IniRead($IniFile, "Settings", "MainFolderFileCount", "200")
+$MainFolderFileCount = IniRead($IniFile, "Settings", "MainFolderFileCount", "192")
 
 ;~ DEFINE FOLDERS
 $UsaFolderName = IniRead($IniFile, "Folders", "USA", "1 USA")
-$WorldFolderName = IniRead($IniFile, "Folders", "World", "1 USA")
+$WorldFolderName = IniRead($IniFile, "Folders", "World", "1 World")
 $EuropeFolderName = IniRead($IniFile, "Folders", "Europe", "2 Europe")
 $JapanFolderName = IniRead($IniFile, "Folders", "Japan", "2 Japan")
 $OtherFolderName = IniRead($IniFile, "Folders", "OtherRegions", "2 Other Regions")
 $RevisionFolderName = IniRead($IniFile, "Folders", "Revisions", "2 Revisions")
 $CollectionFolderName = IniRead($IniFile, "Folders", "Collections", "3 Collections")
-$SegaMiniFolderName = IniRead($IniFile, "Folders", "SegaMini", "3 Mega Drive Mini")
 $SegaCd32xFolderName = IniRead($IniFile, "Folders", "SegaCD32X", "3 Sega CD 32X")
-$VcFolderName = IniRead($IniFile, "Folders", "VirtualConsole", "3 Virtual Console")
 $EnhancedSoundtrackFolderName = IniRead($IniFile, "Folders", "EnhancedSoundtrack", "3 Enhanced Soundtrack")
 $BetaFolderName = IniRead($IniFile, "Folders", "Betas", "4 Betas & Protos")
 $DemoFolderName = IniRead($IniFile, "Folders", "Demos", "4 Demos & Samples")
 $HomebrewFolderName = IniRead($IniFile, "Folders", "Homebrew", "4 Homebrew")
+$PirateFolderName = IniRead($IniFile, "Folders", "Pirate", "4 Pirate")
 $ProgramFolderName = IniRead($IniFile, "Folders", "Programs", "4 Programs")
 $UnlicensedFolderName = IniRead($IniFile, "Folders", "Unlicensed", "4 Unlicensed")
 $VideoFolderName = IniRead($IniFile, "Folders", "Videos", "4 Videos")
-$TranslationFolderName = IniRead($IniFile, "Folders", "Translations", "5 Translations")
 $BiosFolderName = IniRead($IniFile, "Folders", "BIOS", "6 BIOS")
 
 ;~ DEFINE PATHS
@@ -42,15 +40,13 @@ $JapanFolder = $RomsFolder & "\" & $JapanFolderName
 $OtherFolder = $RomsFolder & "\" & $OtherFolderName
 $RevisionFolder = $RomsFolder & "\" & $RevisionFolderName
 $CollectionFolder = $RomsFolder & "\" & $CollectionFolderName
-$SegaMiniFolder = $RomsFolder & "\" & $SegaMiniFolderName
 $SegaCd32xFolder = $RomsFolder & "\" & $SegaCd32xFolderName
-$VcFolder = $RomsFolder & "\" & $VcFolderName
 $EnhancedSoundtrackFolder = $RomsFolder & "\" & $EnhancedSoundtrackFolderName
 $BetaFolder = $RomsFolder & "\" & $BetaFolderName
 $DemoFolder = $RomsFolder & "\" & $DemoFolderName
 $HomebrewFolder = $RomsFolder & "\" & $HomebrewFolderName
+$PirateFolder = $RomsFolder & "\" & $PirateFolderName
 $ProgramFolder = $RomsFolder & "\" & $ProgramFolderName
-$TranslationFolder = $RomsFolder & "\" & $TranslationFolderName
 $UnlicensedFolder = $RomsFolder & "\" & $UnlicensedFolderName
 $VideoFolder = $RomsFolder & "\" & $VideoFolderName
 $BiosFolder = $RomsFolder & "\" & $BiosFolderName
@@ -62,7 +58,7 @@ If IsArray($Files) Then
    For $f = 1 To $Files[0]
 ;~ BIOS
 	  Call(FileSort, "[BIOS]", $BiosFolder, $Files[$f])
-	  Call(FileSort, "(Enhancement Chip)", $BiosFolder & "\Enhancement Chip", $Files[$f])
+	  Call(FileSort, "(Enhancement Chip)", $BiosFolder & "\Enhancement Chips", $Files[$f])
 	  Call(FileSort, "(Channel)", $BiosFolder & "\Channel", $Files[$f])
 	  Call(FileSort, "(System)", $BiosFolder & "\System", $Files[$f])
 ;~ BETAS
@@ -72,14 +68,12 @@ If IsArray($Files) Then
 	  Call(FileSort, "Proto)", $BetaFolder & "\Protos", $Files[$f])
 ;~ DEMOS
 	  Call(FileSort, "(Demo", $DemoFolder & "\Demos", $Files[$f])
+	  Call(FileSort, "Demo)", $DemoFolder & "\Demos", $Files[$f])
 	  Call(FileSort, "Demo Disc", $DemoFolder & "\Demos", $Files[$f])
 	  Call(FileSort, "(Kiosk", $DemoFolder & "\Demos", $Files[$f])
 	  Call(FileSort, "(Sample", $DemoFolder & "\Samples", $Files[$f])
 	  Call(FileSort, "(Promo", $DemoFolder & "\Samples", $Files[$f])
 	  Call(FileSort, "Promo)", $DemoFolder & "\Samples", $Files[$f])
-;~ TRANSLATIONS
-	  Call(FileSort, "[T-En", $TranslationFolder, $Files[$f])
-	  Call(FileSort, "(T-En", $TranslationFolder, $Files[$f])
 ;~ VIDEOS
 	  Call(FileSort, "Game Boy Advance Video", $VideoFolder, $Files[$f])
 ;~ COLLECTIONS
@@ -105,24 +99,19 @@ If IsArray($Files) Then
 		 Call(FileSort, "(Disney Classic Games", $CollectionFolder & "\Disney Classic Games", $Files[$f])
 		 Call(FileSort, "(e-Reader Edition", $CollectionFolder & "\e-Reader Edition", $Files[$f])
 		 Call(FileSort, "(Capcom Classics Mini Mix", $CollectionFolder & "\Capcom Classics Mini Mix", $Files[$f])
+		 Call(FileSort, "(Mega Drive Mini", $CollectionFolder & "\Mega Drive Mini", $Files[$f])
+		 Call(FileSort, "(Genesis Mini", $CollectionFolder & "\Genesis Mini", $Files[$f])
+		 Call(FileSort, "Virtual Console", $CollectionFolder & "\Virtual Console", $Files[$f])
+		 Call(FileSort, "Switch Online", $CollectionFolder & "\Switch Online", $Files[$f])
 	  EndIf
 ;~ HOMEBREW
 	  Call(FileSort, "(Homebrew)", $HomebrewFolder, $Files[$f])
+;~ PIRATE
+	  Call(FileSort, "(Pirate)", $PirateFolder, $Files[$f])
 ;~ UNLICENSED
-	  Call(FileSort, "(Pirate)", $UnlicensedFolder, $Files[$f])
 	  Call(FileSort, "(Unl)", $UnlicensedFolder, $Files[$f])
-;~ SEGA MINI CONSOLES
-	  If $Mode = "0" Then
-		 Call(FileSort, "(Mega Drive Mini)", $SegaMiniFolder, $Files[$f])
-		 Call(FileSort, "(Genesis Mini)", $SegaMiniFolder, $Files[$f])
-	  EndIf
 ;~ PROGRAMS
 	  Call(FileSort, "Program)", $ProgramFolder, $Files[$f])
-;~ NINTENDO
-	  If $Mode = "0" Then
-		 Call(FileSort, "Virtual Console", $VcFolder, $Files[$f])
-		 Call(FileSort, "Switch Online", $VcFolder, $Files[$f])
-	  EndIf
 ;~ SEGA CD SPECIFIC
 	  Call(FileSort, "(Brazil) (Sega CD 32X)", $SegaCd32xFolder & "\" & $OtherFolderName & "\Brazil", $Files[$f])
 	  Call(FileSort, "Sega CD 32X", $SegaCd32xFolder & "\" & $UsaFolderName, $Files[$f])
@@ -145,106 +134,23 @@ If IsArray($Files) Then
 	  Call(FileSort, "(Europe", $EuropeFolder, $Files[$f])
 	  Call(FileSort, ", Europe", $EuropeFolder, $Files[$f])
 	  Call(FileSort, "(Japan", $JapanFolder, $Files[$f])
-;~ OTHER REGIONS
-	  Call(FileSort, "(Germany)", $OtherFolder & "\Germany", $Files[$f])
-	  Call(FileSort, "(Italy)", $OtherFolder & "\Italy", $Files[$f])
-	  Call(FileSort, "(Spain)", $OtherFolder & "\Spain", $Files[$f])
-	  Call(FileSort, "(France)", $OtherFolder & "\France", $Files[$f])
-	  Call(FileSort, "(China)", $OtherFolder & "\China", $Files[$f])
-	  Call(FileSort, "(Korea)", $OtherFolder & "\Korea", $Files[$f])
-	  Call(FileSort, "(Australia)", $OtherFolder & "\Australia", $Files[$f])
-	  Call(FileSort, "(United Kingdom", $OtherFolder & "\United Kingdom", $Files[$f])
-	  Call(FileSort, "(UK)", $OtherFolder & "\United Kingdom", $Files[$f])
-	  Call(FileSort, "(Netherlands)", $OtherFolder & "\Netherlands", $Files[$f])
-	  Call(FileSort, "(Denmark)", $OtherFolder & "\Denmark", $Files[$f])
-	  Call(FileSort, "(Sweden)", $OtherFolder & "\Sweden", $Files[$f])
-	  Call(FileSort, "(Brazil", $OtherFolder & "\Brazil", $Files[$f])
-	  Call(FileSort, "(Mexico)", $OtherFolder & "\Mexico", $Files[$f])
-	  Call(FileSort, "(Asia)", $OtherFolder & "\Asia", $Files[$f])
-	  Call(FileSort, "(Hong Kong)", $OtherFolder & "\Hong Kong", $Files[$f])
-	  Call(FileSort, "(Taiwan)", $OtherFolder & "\Taiwan", $Files[$f])
-	  Call(FileSort, "(Canada)", $OtherFolder & "\Canada", $Files[$f])
-	  Call(FileSort, "(New Zealand)", $OtherFolder & "\New Zealand", $Files[$f])
-	  Call(FileSort, "(Finland)", $OtherFolder & "\Finland", $Files[$f])
-	  Call(FileSort, "(Greece)", $OtherFolder & "\Greece", $Files[$f])
-	  Call(FileSort, "(Russia)", $OtherFolder & "\Russia", $Files[$f])
-	  Call(FileSort, "(Norway)", $OtherFolder & "\Norway", $Files[$f])
-	  Call(FileSort, "(Portugal)", $OtherFolder & "\Portugal", $Files[$f])
-	  Call(FileSort, "(Scandinavia)", $OtherFolder & "\Scandinavia", $Files[$f])
-	  Call(FileSort, "(Austria)", $OtherFolder & "\Austria", $Files[$f])
-	  Call(FileSort, "(Ireland)", $OtherFolder & "\Ireland", $Files[$f])
-	  Call(FileSort, "(Israel)", $OtherFolder & "\Israel", $Files[$f])
-	  Call(FileSort, "(Belgium", $OtherFolder & "\Belgium", $Files[$f])
-	  Call(FileSort, "(Poland)", $OtherFolder & "\Poland", $Files[$f])
-	  Call(FileSort, "(Latin America)", $OtherFolder & "\Latin America", $Files[$f])
-	  Call(FileSort, "(Export)", $OtherFolder & "\Export", $Files[$f])
-	  Call(FileSort, "(Unknown)", $OtherFolder & "\Unknown", $Files[$f])
-   Next
+;~ REMAINING FILES
+	  Call(FileSort, "(", $OtherFolder, $Files[$f])
+	Next
 EndIf
 
-;~ CREATE SUBFOLDERS FOR MAIN REGION FOLDERS
-$WorldCount = _FileListToArrayRec($WorldFolder, "*", 1, 0, 1, 2)
-If IsArray($WorldCount) Then
-   If $WorldCount[0] > $MainFolderFileCount Then
-	  Call(FolderSort, $WorldFolder)
-   EndIf
-Endif
+;~ CREATE SUBFOLDERS
+Call(SubfolderSort,$WorldFolder,$MainFolderFileCount)
+Call(SubfolderSort,$UsaFolder,$MainFolderFileCount)
+Call(SubfolderSort,$EuropeFolder,$MainFolderFileCount)
+Call(SubfolderSort,$JapanFolder,$MainFolderFileCount)
 
-$UsaCount = _FileListToArrayRec($UsaFolder, "*", 1, 0, 1, 2)
-If IsArray($UsaCount) Then
-   If $UsaCount[0] > $MainFolderFileCount Then
-	  Call(FolderSort, $UsaFolder)
-   EndIf
-Endif
-
-$EuropeCount = _FileListToArrayRec($EuropeFolder, "*", 1, 0, 1, 2)
-If IsArray($EuropeCount) Then
-   If $EuropeCount[0] > $MainFolderFileCount Then
-	  Call(FolderSort, $EuropeFolder)
-   EndIf
-Endif
-
-$JapanCount = _FileListToArrayRec($JapanFolder, "*", 1, 0, 1, 2)
-If IsArray($JapanCount) Then
-   If $JapanCount[0] > $MainFolderFileCount Then
-	  Call(FolderSort, $JapanFolder)
-   EndIf
-Endif
-
-$RevisionCount = _FileListToArrayRec($RevisionFolder, "*", 1, 0, 1, 2)
-If IsArray($RevisionCount) Then
-   If $RevisionCount[0] > $MainFolderFileCount Then
-	  Call(FolderSort, $RevisionFolder)
-   EndIf
-Endif
-
-$TranslationCount = _FileListToArrayRec($TranslationFolder, "*", 1, 0, 1, 2)
-If IsArray($TranslationCount) Then
-   If $TranslationCount[0] > $MainFolderFileCount Then
-	  Call(FolderSort, $TranslationFolder)
-   EndIf
-Endif
-
-$UnlicensedCount = _FileListToArrayRec($UnlicensedFolder, "*", 1, 0, 1, 2)
-If IsArray($UnlicensedCount) Then
-   If $UnlicensedCount[0] > $MainFolderFileCount Then
-	  Call(FolderSort, $UnlicensedFolder)
-   EndIf
-Endif
-
-$HomebrewCount = _FileListToArrayRec($HomebrewFolder, "*", 1, 0, 1, 2)
-If IsArray($HomebrewCount) Then
-   If $HomebrewCount[0] > $MainFolderFileCount Then
-	  Call(FolderSort, $HomebrewFolder)
-   EndIf
-Endif
-
-$VcCount = _FileListToArrayRec($VcFolder, "*", 1, 0, 1, 2)
-If IsArray($VcCount) Then
-   If $VcCount[0] > $MainFolderFileCount Then
-	  Call(FolderSort, $VcFolder)
-   EndIf
-Endif
+;~ SORT FOLDERS BY REGION
+Call(RegionSort,$OtherFolder)
+Call(RegionSort,$RevisionFolder)
+Call(RegionSort,$HomebrewFolder)
+Call(RegionSort,$PirateFolder)
+Call(RegionSort,$UnlicensedFolder)
 
 ;~ FUNCTIONS
 ;~ FILESORT
@@ -260,7 +166,7 @@ EndFunc
 ;~ FOLDERSORT
 Func FolderSort($RomsFolder)
 ;~ MOVE NUMBERED FILES
-$FileList = _FileListToArrayRec($RomsFolder, "0*;1*;2*;3*;4*;5*;6*;7*;8*;9*;'*", 1, 0, 1, 2)
+$FileList = _FileListToArrayRec($RomsFolder, "0*;1*;2*;3*;4*;5*;6*;7*;8*;9*;'*;[*", 1, 0, 1, 2)
    If IsArray($FileList) Then
 	  $Folder = $RomsFolder & "\#"
 	  DirCreate($Folder)
@@ -268,7 +174,7 @@ $FileList = _FileListToArrayRec($RomsFolder, "0*;1*;2*;3*;4*;5*;6*;7*;8*;9*;'*",
 			FileMove($FileList[$f], $Folder)
 		 Next
 	  EndIf
-
+;~ MOVE FILES
 $FileList = _FileListToArrayRec($RomsFolder, "*", 1, 0, 1, 2)
    If IsArray($FileList) Then
 		 For $f = 1 To $FileList[0]
@@ -278,4 +184,63 @@ $FileList = _FileListToArrayRec($RomsFolder, "*", 1, 0, 1, 2)
 			FileMove($FileList[$f], $Folder)
 		 Next
    EndIf
+EndFunc
+
+;~ SUBFOLDERSORT
+Func SubfolderSort($Folder,$FolderFileCount)
+	$Count = _FileListToArrayRec($Folder, "*", 1, 0, 1, 2)
+	If IsArray($Count) Then
+		If $Count[0] > $FolderFileCount Then
+			Call(FolderSort, $Folder)
+		EndIf
+	Endif
+EndFunc
+
+;~ REGIONSORT
+Func RegionSort($Folder)
+$Files = _FileListToArrayRec($Folder, "*", 1, 0, 1, 2)
+If IsArray($Files) Then
+   For $f = 1 To $Files[0]
+		Call(FileSort, "(USA", $Folder & "\USA", $Files[$f])
+		Call(FileSort, ", USA", $Folder & "\USA", $Files[$f])
+		Call(FileSort, "(World", $Folder & "\World", $Files[$f])
+		Call(FileSort, "(Europe", $Folder & "\Europe", $Files[$f])
+		Call(FileSort, ", Europe", $Folder & "\Europe", $Files[$f])
+		Call(FileSort, "(Japan", $Folder & "\Japan", $Files[$f])
+		Call(FileSort, "(Germany)", $Folder & "\Germany", $Files[$f])
+		Call(FileSort, "(Italy)", $Folder & "\Italy", $Files[$f])
+		Call(FileSort, "(Spain)", $Folder & "\Spain", $Files[$f])
+		Call(FileSort, "(France)", $Folder & "\France", $Files[$f])
+		Call(FileSort, "(China)", $Folder & "\China", $Files[$f])
+		Call(FileSort, "(Korea)", $Folder & "\Korea", $Files[$f])
+		Call(FileSort, "(Australia)", $Folder & "\Australia", $Files[$f])
+		Call(FileSort, "(United Kingdom", $Folder & "\United Kingdom", $Files[$f])
+		Call(FileSort, "(UK)", $Folder & "\United Kingdom", $Files[$f])
+		Call(FileSort, "(Netherlands)", $Folder & "\Netherlands", $Files[$f])
+		Call(FileSort, "(Denmark)", $Folder & "\Denmark", $Files[$f])
+		Call(FileSort, "(Sweden)", $Folder & "\Sweden", $Files[$f])
+		Call(FileSort, "(Brazil", $Folder & "\Brazil", $Files[$f])
+		Call(FileSort, "(Mexico)", $Folder & "\Mexico", $Files[$f])
+		Call(FileSort, "(Asia", $Folder & "\Asia", $Files[$f])
+		Call(FileSort, "(Hong Kong)", $Folder & "\Hong Kong", $Files[$f])
+		Call(FileSort, "(Taiwan)", $Folder & "\Taiwan", $Files[$f])
+		Call(FileSort, "(Canada)", $Folder & "\Canada", $Files[$f])
+		Call(FileSort, "(New Zealand)", $Folder & "\New Zealand", $Files[$f])
+		Call(FileSort, "(Finland)", $Folder & "\Finland", $Files[$f])
+		Call(FileSort, "(Greece)", $Folder & "\Greece", $Files[$f])
+		Call(FileSort, "(Russia)", $Folder & "\Russia", $Files[$f])
+		Call(FileSort, "(Norway)", $Folder & "\Norway", $Files[$f])
+		Call(FileSort, "(Portugal)", $Folder & "\Portugal", $Files[$f])
+		Call(FileSort, "(Scandinavia)", $Folder & "\Scandinavia", $Files[$f])
+		Call(FileSort, "(Austria)", $Folder & "\Austria", $Files[$f])
+		Call(FileSort, "(Ireland)", $Folder & "\Ireland", $Files[$f])
+		Call(FileSort, "(Israel)", $Folder & "\Israel", $Files[$f])
+		Call(FileSort, "(Belgium", $Folder & "\Belgium", $Files[$f])
+		Call(FileSort, "(Poland)", $Folder & "\Poland", $Files[$f])
+		Call(FileSort, "(Latin America)", $Folder & "\Latin America", $Files[$f])
+		Call(FileSort, "(Export)", $Folder & "\Export", $Files[$f])
+		Call(FileSort, "(Argentina)", $Folder & "\Argentina", $Files[$f])
+		Call(FileSort, "(Unknown)", $Folder & "\Unknown", $Files[$f])
+		Next
+	EndIf
 EndFunc
