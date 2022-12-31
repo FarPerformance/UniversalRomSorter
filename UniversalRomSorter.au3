@@ -74,6 +74,7 @@ If IsArray($Files) Then
 	  Call(FileSort, "(Sample", $DemoFolder & "\Samples", $Files[$f])
 	  Call(FileSort, "(Promo", $DemoFolder & "\Samples", $Files[$f])
 	  Call(FileSort, "Promo)", $DemoFolder & "\Samples", $Files[$f])
+	  Call(FileSort, "Taikenban)", $DemoFolder & "\Taikenban", $Files[$f])
 ;~ VIDEOS
 	  Call(FileSort, "Game Boy Advance Video", $VideoFolder, $Files[$f])
 ;~ COLLECTIONS
