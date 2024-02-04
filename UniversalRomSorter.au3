@@ -60,7 +60,7 @@ If IsArray($Files) Then
 	Call(FileSort, "(System)", $BiosFolder & "\System", $Files[$f])
 ;~ BETAS & PROTOS
 	Call(FileSortRegEx, "\((Beta|Debug).*\)", $BetaFolder & "\Betas", $Files[$f]) ; R1
-	Call(FileSortRegEx, "\(Proto.*\)", $BetaFolder & "\Protos", $Files[$f]) ; R1
+	Call(FileSortRegEx, "\(([^)]*Proto[^)]*)\)", $BetaFolder & "\Protos", $Files[$f]) ; R1a
 ;~ DEMOS & SAMPLES
 	Call(FileSortRegEx, "\((Demo|Kiosk|Taikenban).*\)", $DemoFolder & "\Demos", $Files[$f]) ; R1
 	Call(FileSortRegEx, "(Demo Disc|Demo CD|Euro Demo)(?=[^(]*\()", $DemoFolder & "\Demos", $Files[$f]) ; R3
@@ -73,21 +73,22 @@ If IsArray($Files) Then
 	Call(FileSortRegEx, "(Aprilia|Jaguar Mishin Sashi Senyou Soft|Peugeot - Orbital Diagnostic System|Raku x Raku|Sewing Machine Operation Software|Test Cartridge)(?=[^(]*\()", $ProgramFolder, $Files[$f]) ; R3
 	Call(FileSortRegEx, "(Minolta)(?=[^(]*\()", $ProgramFolder & "\Minolta", $Files[$f]) ; R3
 ;~ APPLICATIONS
-	Call(FileSortRegEx, "(Action Replay|CodeBreaker|GameBooster 64|Game Genie|Game Saver|GameShark|Super 8|Super Game Boy|Tri-Star|X-Terminator|Xploder|Xplorer 64)(?=[^(]*\()", $ApplicationFolder, $Files[$f]) ; R3
+	Call(FileSortRegEx, "(Action Replay|CodeBreaker|GameBooster 64|Game Genie|Game Saver|GameShark|Super 8|Super Game Boy|Tri-Star|X-Terminator|Xploder|Xplorer 64|XBAND)(?=[^(]*\()", $ApplicationFolder, $Files[$f]) ; R3
 	Call(FileSortRegEx, "(Advanced Music Player|GB-A TV Tuner|GBA AV Adapter|GBA Jukebox|GBA Movie Player|GBA Personal Organizer)(?=[^(]*\()", $ApplicationFolder, $Files[$f]) ; R3
 	Call(FileSortRegEx, "(Doctor GB Card|Game Boy Aging Cartridge|Game Boy Camera|Game Boy Controller Kensa Cartridge|Game Boy Datenlogger|Game Boy Digital Sampling Oscilloscope|InfoGenius|SmartCom)(?=[^(]*\()", $ApplicationFolder, $Files[$f]) ; R3
 ;~ COLLECTIONS
 	Call(CollectionSort, "\(([^),]*Collection[^),]*)\)", $CollectionFolder, $Files[$f]) ; R4
-	Call(CollectionSort, "\(([^),]*Virtual Console[^),]*)\)", $CollectionFolder, $Files[$f]) ; R4
 	Call(CollectionSort, "\(([^),]*Classics[^),]*)\)", $CollectionFolder, $Files[$f]) ; R4
 	Call(FileSortRegEx, "\((Mega Drive Mini|Genesis Mini).*\)", $CollectionFolder & "\Mega Drive Mini", $Files[$f]) ; R1
 	Call(FileSortRegEx, "\(Competition Cart.*\)", $CollectionFolder & "\Competition Cart", $Files[$f]) ; R1
 	Call(FileSortRegEx, "\(Game no Kanzume.*\)", $CollectionFolder & "\Game no Kanzume", $Files[$f]) ; R1
-	Call(FileSortRegEx, "\(Switch Online.*\)", $CollectionFolder & "\Switch Online", $Files[$f]) ; R1
-	Call(FileSortRegEx, "\(Switch.*\)", $CollectionFolder & "\Switch", $Files[$f]) ; R1
 	Call(FileSortRegEx, "\(Sega Smash Pack.*\)", $CollectionFolder & "\Sega Smash Pack", $Files[$f]) ; R1
 	Call(FileSortRegEx, "\(.*?(Namco Museum Archives|Namco Anthology).*?\)", $CollectionFolder & "\Namcot Collection", $Files[$f]) ; R2
 	Call(FileSortRegEx, "(Arcade Legends)(?=[^(]*\()", $CollectionFolder & "\Arcade Legends", $Files[$f]) ; R3
+	Call(FileSort, "Virtual Console", $CollectionFolder & "\Virtual Console", $Files[$f])
+	Call(FileSort, "Switch Online", $CollectionFolder & "\Switch Online", $Files[$f])
+	Call(FileSort, "Translation, Switch", $CollectionFolder & "\Switch", $Files[$f])
+	Call(FileSort, "(Switch)", $CollectionFolder & "\Switch", $Files[$f])
 	Call(FileSort, "(GameCube Edition)", $CollectionFolder & "\GameCube Edition", $Files[$f])
 	Call(FileSort, "(GameCube)", $CollectionFolder & "\GameCube", $Files[$f])
 	Call(FileSort, "(Wii)", $CollectionFolder & "\Wii", $Files[$f])
