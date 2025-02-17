@@ -1,5 +1,5 @@
 # Universal ROM Sorter
-Universal ROM Sorter (URS) is a tool designed to sort a ROM collection (No-Intro or Redump) into an organized folder structure. The folder structure is created based on the ROM files that are provided and each ROM is then moved into it's proper location.
+Universal ROM Sorter (URS) is a tool designed to sort a ROM collection (No-Intro or Redump) into an organized folder structure. The folder structure is created based on the ROM files that are provided and each ROM is then moved into its proper location.
 
 
 ##### How to use
@@ -35,7 +35,7 @@ The input ROM directory usually has all files in a flat structure. After organiz
 
 _This is a simplified view. Some of these folders contain additional sub folders. Also, depending on the amount of files in a folder the files will be sorted into alphabetical sub folders to make navigation easier._
 
-##### Costumization
+##### Customization
 There is an optional INI file (urs.ini ) that can be used to customize a few aspects:
 
 ```
